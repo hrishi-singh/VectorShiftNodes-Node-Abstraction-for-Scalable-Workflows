@@ -1,4 +1,4 @@
-// inputNode.js
+// inputNode.j
 
 import { useState } from 'react';
 import { handle, handleTypeChange, labelSet, titleSet } from '../helpers/handles';
