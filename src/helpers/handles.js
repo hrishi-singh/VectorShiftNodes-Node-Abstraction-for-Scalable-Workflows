@@ -1,39 +1,87 @@
 import { Handle, Position } from 'reactflow';
-export const handleNameChange = (e, func) => {
-  func(e.target.value);
-};
-export const handleTypeChange = (e, func) => {
+import { useState } from 'react';
+// const [id,setId] = useState('')
+// const getPlaceHolderDetails =(id)=>{
+//   setId(id);
+// }
+
+// export const handleNameChange = (e, func) => {
+//   func(e.target.value);
+// };
+// export const handleTypeChange = (e, func) => {
+//   func(e.target.value);
+// };
+export const handleChange = (e, func) => {
   func(e.target.value);
 };
 
-const labelSet = (label, val, setval) =>
-  <label>
+// const LabeledNodeInput = (label, placeHolderValue) =>{
+//   const [currName, setCurrName] = useState(placeHolderValue);
+//   return(
+//     <label>
+//     {`${label}:`}
+//     <input
+//       type="text"
+//       value={currName}
+//       onChange={e => handleNameChange(e, setCurrName)}
+//     />
+//   </label>
+//   )
+// }
+
+const LabeledNode =(label,placeHolder)=>{
+  const [curr, setCurr] = useState(placeHolder);
+  return{
+    input:()=>
+      <label>
     {`${label}:`}
     <input
       type="text"
-      value={val}
-      onChange={e => handleNameChange(e, setval)}
+      value={curr}
+      onChange={e => handleChange(e, setCurr)}
     />
-  </label>
+  </label>,
+  selection:(options)=>
+    <label>
+  {`${label}:`}
+ <select value={curr} onChange={e => { handleChange(e, setCurr) }}>
+   {
+     options.map((option)=>{
+       return <option value={`${option}`} key={option}>{option}</option>
+       
+     })
+   }
+ </select>
+ </label>
+  }
+
+  
+}
+  
 
 const titleSet = (title) =>
   <div>
     <span>{`${title}`}</span>
   </div>
 
-// const handleLeft = (id, label, classes = '') =>
-//   <Handle
-//     type="target"
-//     position={Position.Left}
-//     id={`${id}-${label}`}
-//     className={classes}
-//   />
-// const handleRight = (id, label) =>
-//   <Handle
-//     type="source"
-//     position={Position.Right}
-//     id={`${id}-${label}`}
-//   />
+// const typeSet=(label,initialPlaceHolderType,options)=>
+// {
+//   const [inputType, setInputType] = useState(data.inputType || 'Text');
+//   return(
+//     <label>
+//     {`${label}:`}
+//    <select value={val} onChange={e => { handleTypeChange(e, setval) }}>
+//      {
+//        options.map((option)=>{
+//          return <option value={`${option}`} key={option}>{option}</option>
+         
+//        })
+//      }
+//    </select>
+//    </label>
+//   )
+// }
+
 
 const handle = (id, label, connectorPos=50) => {
   const handleId = `${id}-${label}`;
@@ -55,13 +103,11 @@ const handle = (id, label, connectorPos=50) => {
       />
 
   }
-
-
 }
 export {
   // handleLeft,
   // handleRight,
-  labelSet,
+  LabeledNode,
   titleSet,
   handle
 }
