@@ -1,19 +1,19 @@
 // outputNode.js
 
-import { useState } from 'react';
-import { LabeledNode, titleSet, handle} from '../helpers/handles';
+import { LabeledNode, SpannedTextDisplay,NodeConnectorHandles} from '../helpers/handles';
 
 export const OutputNode = ({ id, data }) => {
-  const [currName, setCurrName] = useState(data?.outputName || id.replace('customOutput-', 'output_'));
-  const [outputType, setOutputType] = useState(data.outputType || 'Text');
+
+  const initialValue=data?.outputName || id.replace('customOutput-', 'output_');
+  const initialType=data.inputType || 'Text';
+
   return (
     <div className='container'>
-     {handle(id,"value").left()}
-      {titleSet("Output")}
+     {NodeConnectorHandles(id,"value").left()}
+      {SpannedTextDisplay("Output")}
       <div>
-        {/* {LabelSet("Name",currName,setCurrName)} */}
-
-        {/* {typeSet("Type",outputType,setOutputType,["Text","Image"])} */}
+        {LabeledNode("Name",initialValue).input()}
+        {LabeledNode("Name",initialType).selection(["Text","Image"])}
       </div>
     </div>
   );

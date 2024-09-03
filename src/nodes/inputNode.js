@@ -1,19 +1,23 @@
 // inputNode.js
-import { useState } from 'react';
-import { handle, LabeledNode, titleSet } from '../helpers/handles';
+
+import { NodeConnectorHandles, LabeledNode, SpannedTextDisplay } from '../helpers/handles';
+
+
 
 export const InputNode = ({ id, data }) => {
-  // const [inputType, setInputType] = useState(data.inputType || 'Text');
-  const initialPlaceHolderValue=data?.inputName || id.replace('customInput-', 'input_');
-  const initialPlaceHolderType=data.inputType || 'Text';
+
+  const initialValue=data?.inputName || id.replace('customInput-', 'input_');
+  const initialType=data.inputType || 'Text';
+
+  
   return (
     <div className='container'>
-      {titleSet("Input")}
+      {SpannedTextDisplay("Input")}
       <div>
-        {LabeledNode("Name", initialPlaceHolderValue).input()}
-        {LabeledNode("Type",initialPlaceHolderType).selection(["Text","File"])}
+        {LabeledNode("Name", initialValue).input()}
+        {LabeledNode("Type",initialType).selection(["Text","File"])}
       </div>
-      {handle(id,"value").right()}
+      {NodeConnectorHandles(id,"value").right()}
     </div>
   );
 }

@@ -1,6 +1,6 @@
 // textNode.js
 
-import { handle, LabeledNode, titleSet } from '../helpers/handles';
+import { NodeConnectorHandles, LabeledNode, SpannedTextDisplay } from '../helpers/handles';
 
 export const TextNode = ({ id, data }) => {
 
@@ -8,11 +8,11 @@ export const TextNode = ({ id, data }) => {
 
   return (
     <div className='container'>
-      {titleSet("Text")}
+      {SpannedTextDisplay("Text")}
       <div>
         {LabeledNode("Text", placeHolderValue).input()}
       </div>
-      {handle(id,"output").right()}
+      {NodeConnectorHandles(id,"output").right()}
     </div>
   );
 }
