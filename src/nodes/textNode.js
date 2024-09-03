@@ -1,10 +1,11 @@
 // textNode.js
 
-import { NodeConnectorHandles, LabeledNode, SpannedTextDisplay } from '../helpers/handles';
+import { NodeConnectorHandles, LabeledNode, SpannedTextDisplay, InitialPlaceholder } from '../helpers/handles';
 
 export const TextNode = ({ id, data }) => {
 
-  const placeHolderValue = data?.text || '{{input}}';
+  const placeHolderValue = InitialPlaceholder(data?.text)
+                           .assign('{{input}}');
 
   return (
     <div className='container'>

@@ -7,6 +7,16 @@ export const handleChange = (e, fn) => {
   fn(e.target.value);
 };
 
+export const InitialPlaceholder =(data)=>{
+   return{
+    replace: (id,oldValue,newValue)=>{
+      return data || id.replace(oldValue, newValue);
+    },
+    assign: (initialSelection)=>{
+      return data || initialSelection;
+    }
+   }
+}
 
 
 export const LabeledNode = (label, placeHolder) => {

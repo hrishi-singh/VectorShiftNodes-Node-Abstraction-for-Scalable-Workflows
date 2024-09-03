@@ -1,13 +1,16 @@
 // inputNode.js
 
-import { NodeConnectorHandles, LabeledNode, SpannedTextDisplay } from '../helpers/handles';
+import { NodeConnectorHandles, LabeledNode, SpannedTextDisplay, InitialPlaceholder } from '../helpers/handles';
 
 
 
 export const InputNode = ({ id, data }) => {
 
-  const initialValue=data?.inputName || id.replace('customInput-', 'input_');
-  const initialType=data.inputType || 'Text';
+  const initialValue= InitialPlaceholder(data?.inputName)
+                      .replace(id,'customInput-', 'input_');
+
+  const initialType= InitialPlaceholder(data?.inputType)
+                     .assign('Text');
 
   
   return (

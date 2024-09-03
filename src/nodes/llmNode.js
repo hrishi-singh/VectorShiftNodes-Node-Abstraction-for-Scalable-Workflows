@@ -8,12 +8,11 @@ export const LLMNode = ({ id, data }) => {
     <div className='container'>
       
       {SpannedTextDisplay("LLM")}
-      <div>
-        <span>This is a LLM.</span>
-      </div>
+      {SpannedTextDisplay("This is a LLM.")}
       {NodeConnectorHandles(id,"system",100/3).left()}
       {NodeConnectorHandles(id,"prompt",200/3).left()}
       {NodeConnectorHandles(id,"response").right()}
+      
     </div>
   );
 }
