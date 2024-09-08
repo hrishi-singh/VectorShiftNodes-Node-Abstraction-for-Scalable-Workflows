@@ -15,8 +15,7 @@ export const PromptNode= ({id,data})=>{
             {LabeledNode("Select Model",initialSelection).selection(ModelsOptions)}
             {SpannedTextDisplay("connect to process Model for Prompt")}
             {NodeConnectorHandles(id,"promptProcess").right()}
-            {NodeConnectorHandles(id,"promptHistory",100/3).left()}
-            {NodeConnectorHandles(id,"promptAnalyst",200/3).left()}
+            {NodeConnectorHandles(id,"promptHistory","promptAnalyst").left()}
 
         </div>
     )

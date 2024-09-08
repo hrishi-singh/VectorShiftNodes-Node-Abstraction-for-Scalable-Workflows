@@ -13,13 +13,13 @@ module.exports = {
           300: '#262626',
           400: '#0D0D0D',
         },
-        'prim-green':{
-          50:'#dcf8ea',
-          100: '#04ae56'
+        'prim-blue':{
+          50:'#aa80f7',
+          100: '#6464d7',
+          200:'#4851e2',
         }
       },
       fontFamily:{
-        reloceta:['var(--font-recoleta)']
       }
     },
   },

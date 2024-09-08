@@ -4,12 +4,11 @@ import { LabeledNode, SpannedTextDisplay,NodeConnectorHandles, InitialPlaceholde
 
 export const OutputNode = ({ id, data }) => {
 
-  // const initialValue=data?.outputName || id.replace('customOutput-', 'output_');
   const initialValue =  InitialPlaceholder(data?.outputName)
                         .replace(id,'customOutput-', 'output_');
-  // const initialType=data.inputType || 'Text';
-  const initialType=InitialPlaceholder(data?.inputType)
-                    .assign('Text');
+
+  const initialType= InitialPlaceholder(data?.inputType)
+                     .assign('Text');
 
   return (
     <div className='container'>

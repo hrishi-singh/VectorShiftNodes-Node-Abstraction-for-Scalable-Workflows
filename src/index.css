@@ -15,11 +15,48 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+:root{
+  --prim-blue-50: #aa80f7;
+  --prim-blue-100: #4851e2;
 
+  --prim-dark-50:#A6A6A6;
+  --prim-dark-100:#737373;
+  --prim-dark-200:#404040;
+  --prim-dark-300:#262626;
+  --prim-dark-400:#0D0D0D;
+
+}
 .container{
   width: 20rem;
-  height: 8rem;
+ min-height: 10rem;
   border: 1px solid black;
-  padding: 2rem;
-  border-radius: 1rem;
+  padding: 1em 2em;
+  border-radius: 0.75em;
+  border: 2px solid var(--prim-blue-100);
+}
+
+label{
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  margin: .2em;
+  font-weight: 600;
+  color: var(--prim-dark-100);
+  font-size: 16px;
+}
+.__title{
+  font-size: 1.25em;
+  color: var(--prim-dark-200);
+  font-weight: 500;
+}
+.placeholder{
+  color: var(--prim-blue-100);
+
+}
+.connectors{
+ display: flex;
+ flex-direction: column;
+
+
 }
